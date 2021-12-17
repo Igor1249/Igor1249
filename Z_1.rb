@@ -57,8 +57,8 @@ def pricer
     response = HTTParty.get(url)
     #puts response
     distance = response.parsed_response["rows"].first["elements"].first["distance"]["text"]
-    puts distance.split(" ")[0] #преобразование в цифры
-    puts  "Дистанция  = %f" % distance.to_f
+    distance.split(" ")[0] #удалить "km"
+    puts  "Дистанция  = %f км" % distance.to_f
 
     # 4.Результатом работы класса должен быть хеш следующего вида -> {weight: 1,length: 1, width: 1, height: 1, distance: 1, price: 1}
     # 5. Расчет цены:
